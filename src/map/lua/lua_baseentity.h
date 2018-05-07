@@ -575,10 +575,12 @@ public:
     int32 spawnPet(lua_State*);              // Calls Pet
     int32 despawnPet(lua_State*);            // Despawns Pet
 
-    int32 canUsePet(lua_State *L);           // check to see if character can call pet, 0 if so
-    int32 isJugPet(lua_State*);              // If the entity has a pet, test if it is a jug pet.
-    int32 hasValidJugPetItem(lua_State*);
-
+    int32 spawnTrust(lua_State*);            // Spawns trust
+    
+    int32 canUsePet(lua_State *L);           // check to see if character can call pet, 0 if so    
+    int32 isJugPet(lua_State*);              // If the entity has a pet, test if it is a jug pet.    
+    int32 hasValidJugPetItem(lua_State*);    
+   
     int32 hasPet(lua_State*);                // returns true if the player has a pet
     int32 getPet(lua_State*);                // Creates an LUA reference to a pet entity
     int32 getPetID(lua_State*);              // If the entity has a pet, returns the PetID to identify pet type.

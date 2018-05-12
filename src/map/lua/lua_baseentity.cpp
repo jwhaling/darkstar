@@ -1713,7 +1713,7 @@ inline int32 CLuaBaseEntity::pathThrough(lua_State* L)
         lua_rawgeti(L, 1, i + 1);
         lua_rawgeti(L, 1, i + 2);
 
-        points.push_back({0, (float)lua_tointeger(L, -3), (float)lua_tointeger(L, -2), (float)lua_tointeger(L, -1), 0});
+        points.push_back({(float)lua_tointeger(L, -3), (float)lua_tointeger(L, -2), (float)lua_tointeger(L, -1), 0, 0});
 
         lua_pop(L, 3);
     }
@@ -10951,6 +10951,11 @@ inline int32 CLuaBaseEntity::getStat(lua_State *L)
         case Mod::CHR:  lua_pushinteger(L, PEntity->CHR()); break;
         case Mod::ATT:  lua_pushinteger(L, PEntity->ATT()); break;
         case Mod::DEF:  lua_pushinteger(L, PEntity->DEF()); break;
+        case Mod::EVA:  lua_pushinteger(L, PEntity->EVA()); break;
+        // TODO: support getStat for ACC/RACC/RATT
+        //case Mod::ACC:  lua_pushinteger(L, PEntity->ACC()); break;
+        //case Mod::RACC: lua_pushinteger(L, PEntity->RACC()); break;
+        //case Mod::RATT: lua_pushinteger(L, PEntity->RATT()); break;
         default: lua_pushnil(L);
     }
     return 1;
